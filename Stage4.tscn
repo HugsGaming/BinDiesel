@@ -1,0 +1,209 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Scipts/Game.gd" type="Script" id=1]
+[ext_resource path="res://Game Assets/UI.png" type="Texture" id=2]
+[ext_resource path="res://fonts/RetroBoundUC.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Game Assets/Biodiesel.png" type="Texture" id=4]
+[ext_resource path="res://newPipes.tres" type="TileSet" id=5]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Enemy(Fast).tscn" type="PackedScene" id=7]
+[ext_resource path="res://Enemy(Medium).tscn" type="PackedScene" id=8]
+[ext_resource path="res://Enemy(Slow).tscn" type="PackedScene" id=9]
+[ext_resource path="res://City.tres" type="SpriteFrames" id=10]
+[ext_resource path="res://cloud.png" type="Texture" id=11]
+[ext_resource path="res://Ground.tres" type="TileSet" id=12]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 32
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 32
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[node name="Stage 4" type="Node2D"]
+script = ExtResource( 1 )
+number_of_oil_needed = 20
+number_of_seconds_per_game = 240
+ui_label_timer_path = NodePath("UI/Time")
+ui_label_oilCollected_path = NodePath("UI/Oil")
+ui_label_bulletsLeft_path = NodePath("UI/Bullets")
+nextScenePath = "res://Stage 5.tscn"
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="TextureRect" parent="UI"]
+margin_left = 1286.0
+margin_top = 1.0
+margin_right = 1682.0
+margin_bottom = 960.0
+texture = ExtResource( 2 )
+
+[node name="Timer" type="Label" parent="UI"]
+margin_left = 1327.72
+margin_top = 35.0
+margin_right = 1505.72
+margin_bottom = 73.0
+custom_fonts/font = SubResource( 1 )
+text = "Time Left:"
+
+[node name="Time" type="Label" parent="UI"]
+margin_left = 1531.79
+margin_top = 34.0
+margin_right = 1598.79
+margin_bottom = 72.0
+custom_fonts/font = SubResource( 2 )
+
+[node name="Oil Collected" type="Label" parent="UI"]
+margin_left = 1324.38
+margin_top = 91.6702
+margin_right = 1560.38
+margin_bottom = 129.67
+custom_fonts/font = SubResource( 3 )
+text = "Oil collected:"
+
+[node name="Oil" type="Label" parent="UI"]
+margin_left = 1570.4
+margin_top = 94.0
+margin_right = 1610.4
+margin_bottom = 132.0
+custom_fonts/font = SubResource( 4 )
+
+[node name="Bullets Left" type="Label" parent="UI"]
+margin_left = 1329.39
+margin_top = 156.0
+margin_right = 1547.39
+margin_bottom = 194.0
+custom_fonts/font = SubResource( 5 )
+text = "Bullets Left:"
+
+[node name="Bullets" type="Label" parent="UI"]
+margin_left = 1563.75
+margin_top = 160.34
+margin_right = 1603.75
+margin_bottom = 198.34
+custom_fonts/font = SubResource( 6 )
+
+[node name="BiodieselBar" type="TextureProgress" parent="UI"]
+margin_left = 1392.93
+margin_top = 524.437
+margin_right = 1552.93
+margin_bottom = 764.437
+texture_progress = ExtResource( 4 )
+fill_mode = 3
+
+[node name="Pipes" type="TileMap" parent="."]
+tile_set = ExtResource( 5 )
+format = 1
+tile_data = PoolIntArray( 262144, 3, 0, 262145, 8, 0, 262146, 1, 0, 262147, 8, 0, 262148, 1, 0, 262149, 4, 0, 262152, 3, 0, 262153, 8, 0, 262154, 8, 0, 262155, 4, 0, 262158, 3, 0, 262159, 1, 0, 262160, 8, 0, 262161, 1, 0, 262162, 8, 0, 262163, 4, 0, 327680, 0, 0, 327681, 0, 0, 327683, 0, 0, 327685, 0, 0, 327686, 3, 0, 327687, 1, 0, 327688, 5, 0, 327689, 0, 0, 327690, 0, 0, 327691, 2, 0, 327692, 1, 0, 327693, 4, 0, 327694, 0, 0, 327696, 0, 0, 327698, 0, 0, 327699, 0, 0, 393216, 0, 0, 393217, 2, 0, 393218, 4, 0, 393219, 0, 0, 393221, 7, 0, 393222, 5, 0, 393225, 0, 0, 393226, 0, 0, 393229, 2, 0, 393230, 9, 0, 393232, 0, 0, 393233, 3, 0, 393234, 5, 0, 393235, 0, 0, 458752, 0, 0, 458754, 0, 0, 458755, 0, 0, 458757, 0, 0, 458759, 3, 0, 458760, 1, 0, 458761, 6, 0, 458762, 6, 0, 458763, 1, 0, 458764, 4, 0, 458766, 0, 0, 458768, 0, 0, 458769, 2, 0, 458770, 4, 0, 458771, 0, 0, 524288, 0, 0, 524289, 3, 0, 524290, 5, 0, 524291, 0, 0, 524293, 0, 0, 524295, 0, 0, 524297, 0, 0, 524298, 0, 0, 524300, 0, 0, 524302, 0, 0, 524304, 0, 0, 524306, 0, 0, 524307, 0, 0, 589824, 0, 0, 589825, 2, 0, 589826, 4, 0, 589827, 7, 0, 589828, 1, 0, 589829, 6, 0, 589830, 1, 0, 589831, 6, 0, 589832, 1, 0, 589833, 6, 0, 589834, 6, 0, 589835, 1, 0, 589836, 6, 0, 589837, 1, 0, 589838, 6, 0, 589839, 1, 0, 589840, 9, 0, 589841, 3, 0, 589842, 5, 0, 589843, 0, 0, 655360, 0, 0, 655362, 0, 0, 655363, 0, 0, 655365, 0, 0, 655367, 0, 0, 655369, 0, 0, 655370, 0, 0, 655372, 0, 0, 655374, 0, 0, 655376, 0, 0, 655377, 2, 0, 655378, 4, 0, 655379, 0, 0, 720896, 0, 0, 720897, 3, 0, 720898, 5, 0, 720899, 0, 0, 720901, 0, 0, 720903, 2, 0, 720904, 1, 0, 720905, 6, 0, 720906, 6, 0, 720907, 1, 0, 720908, 5, 0, 720910, 0, 0, 720912, 0, 0, 720914, 0, 0, 720915, 0, 0, 786432, 0, 0, 786433, 2, 0, 786434, 4, 0, 786435, 0, 0, 786437, 7, 0, 786438, 4, 0, 786441, 0, 0, 786442, 0, 0, 786445, 3, 0, 786446, 9, 0, 786448, 0, 0, 786449, 3, 0, 786450, 5, 0, 786451, 0, 0, 851968, 0, 0, 851970, 0, 0, 851971, 0, 0, 851973, 0, 0, 851974, 2, 0, 851975, 1, 0, 851976, 4, 0, 851977, 0, 0, 851978, 0, 0, 851979, 3, 0, 851980, 1, 0, 851981, 5, 0, 851982, 0, 0, 851984, 0, 0, 851985, 0, 0, 851987, 0, 0, 917504, 2, 0, 917505, 1, 0, 917506, 10, 0, 917507, 10, 0, 917508, 1, 0, 917509, 5, 0, 917512, 2, 0, 917513, 10, 0, 917514, 10, 0, 917515, 5, 0, 917518, 2, 0, 917519, 1, 0, 917520, 10, 0, 917521, 10, 0, 917522, 1, 0, 917523, 5, 0 )
+
+[node name="Player" parent="Pipes" instance=ExtResource( 6 )]
+position = Vector2( 499.23, 355.141 )
+
+[node name="Enemy(Fast)" parent="Pipes" instance=ExtResource( 7 )]
+position = Vector2( 147.639, 539.99 )
+
+[node name="Enemy(Fast)2" parent="Pipes" instance=ExtResource( 7 )]
+position = Vector2( 32.3965, 556.692 )
+
+[node name="Enemy(Fast)3" parent="Pipes" instance=ExtResource( 7 )]
+position = Vector2( 478.335, 603.457 )
+
+[node name="Enemy(Fast)4" parent="Pipes" instance=ExtResource( 7 )]
+position = Vector2( 794, 605.127 )
+
+[node name="Enemy(Fast)5" parent="Pipes" instance=ExtResource( 7 )]
+position = Vector2( 1049.54, 603.457 )
+
+[node name="Enemy(Medium)" parent="Pipes" instance=ExtResource( 8 )]
+position = Vector2( 1168.12, 611.808 )
+
+[node name="Enemy(Medium)2" parent="Pipes" instance=ExtResource( 8 )]
+position = Vector2( 1161.44, 414.726 )
+
+[node name="Enemy(Medium)3" parent="Pipes" instance=ExtResource( 8 )]
+position = Vector2( 535.121, 925.802 )
+
+[node name="Enemy(Medium)4" parent="Pipes" instance=ExtResource( 8 )]
+position = Vector2( 1011.12, 925.802 )
+
+[node name="Enemy(Medium)5" parent="Pipes" instance=ExtResource( 8 )]
+position = Vector2( 1256.64, 603.457 )
+
+[node name="Enemy(Slow)" parent="Pipes" instance=ExtResource( 9 )]
+position = Vector2( 600.259, 484.874 )
+
+[node name="Enemy(Slow)2" parent="Pipes" instance=ExtResource( 9 )]
+position = Vector2( 675.417, 735.401 )
+
+[node name="Enemy(Slow)3" parent="Pipes" instance=ExtResource( 9 )]
+position = Vector2( 414.868, 865.675 )
+
+[node name="Enemy(Slow)4" parent="Pipes" instance=ExtResource( 9 )]
+position = Vector2( 855.797, 862.335 )
+
+[node name="Enemy(Slow)5" parent="Pipes" instance=ExtResource( 9 )]
+position = Vector2( 914.253, 416.396 )
+
+[node name="Enemy(Fast)6" parent="Pipes" instance=ExtResource( 7 )]
+position = Vector2( 239.499, 927.472 )
+
+[node name="Enemy(Medium)6" parent="Pipes" instance=ExtResource( 8 )]
+position = Vector2( 339.71, 311.175 )
+
+[node name="Enemy(Slow)6" parent="Pipes" instance=ExtResource( 9 )]
+position = Vector2( 1181.48, 289.462 )
+
+[node name="Enemy(Fast)7" parent="Pipes" instance=ExtResource( 7 )]
+position = Vector2( 232.818, 605.127 )
+
+[node name="Enemy(Medium)7" parent="Pipes" instance=ExtResource( 8 )]
+position = Vector2( 1243.28, 895.739 )
+
+[node name="City" type="ParallaxBackground" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="City"]
+position = Vector2( 643.019, 127.769 )
+scale = Vector2( 1, 1.0348 )
+frames = ExtResource( 10 )
+
+[node name="Cloud" type="ParallaxBackground" parent="City/AnimatedSprite"]
+
+[node name="Sprite" type="Sprite" parent="City/AnimatedSprite/Cloud"]
+position = Vector2( 644.689, 127.769 )
+scale = Vector2( 19.9983, 7.8373 )
+texture = ExtResource( 11 )
+
+[node name="GameTimer" type="Timer" parent="."]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 12 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 0, 1900571, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524312, 0, 0, 524313, 0, 0, 524314, 0, 0, 524315, 0, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589848, 1, 0, 589849, 1, 0, 589850, 1, 0, 589851, 1, 0, 655364, 4, 0, 655365, 4, 0, 655368, 4, 0, 655369, 4, 0, 655390, 4, 0, 655391, 4, 0, 655394, 4, 0, 655395, 4, 0, 720900, 4, 0, 720901, 4, 0, 720904, 4, 0, 720905, 4, 0, 720926, 4, 0, 720927, 4, 0, 720930, 4, 0, 720931, 4, 0, 786440, 4, 0, 786441, 4, 0, 786446, 4, 0, 786447, 4, 0, 786448, 4, 0, 786449, 4, 0, 786454, 4, 0, 786455, 4, 0, 786456, 4, 0, 786457, 4, 0, 786462, 4, 0, 786463, 4, 0, 851976, 4, 0, 851977, 4, 0, 851982, 4, 0, 851983, 4, 0, 851984, 4, 0, 851985, 4, 0, 851990, 4, 0, 851991, 4, 0, 851992, 4, 0, 851993, 4, 0, 851998, 4, 0, 851999, 4, 0, 917506, 4, 0, 917507, 4, 0, 917512, 4, 0, 917513, 4, 0, 917516, 4, 0, 917517, 4, 0, 917530, 4, 0, 917531, 4, 0, 917534, 4, 0, 917535, 4, 0, 983042, 4, 0, 983043, 4, 0, 983048, 4, 0, 983049, 4, 0, 983052, 4, 0, 983053, 4, 0, 983066, 4, 0, 983067, 4, 0, 983070, 4, 0, 983071, 4, 0, 1048584, 4, 0, 1048585, 4, 0, 1048588, 4, 0, 1048589, 4, 0, 1048592, 4, 0, 1048593, 4, 0, 1048598, 4, 0, 1048599, 4, 0, 1048602, 4, 0, 1048603, 4, 0, 1048606, 4, 0, 1048607, 4, 0, 1048610, 4, 0, 1048611, 4, 0, 1114120, 4, 0, 1114121, 4, 0, 1114124, 4, 0, 1114125, 4, 0, 1114128, 4, 0, 1114129, 4, 0, 1114134, 4, 0, 1114135, 4, 0, 1114138, 4, 0, 1114139, 4, 0, 1114142, 4, 0, 1114143, 4, 0, 1114146, 4, 0, 1114147, 4, 0, 1310722, 4, 0, 1310723, 4, 0, 1310728, 4, 0, 1310729, 4, 0, 1310732, 4, 0, 1310733, 4, 0, 1310736, 4, 0, 1310737, 4, 0, 1310742, 4, 0, 1310743, 4, 0, 1310746, 4, 0, 1310747, 4, 0, 1310750, 4, 0, 1310751, 4, 0, 1376258, 4, 0, 1376259, 4, 0, 1376264, 4, 0, 1376265, 4, 0, 1376268, 4, 0, 1376269, 4, 0, 1376272, 4, 0, 1376273, 4, 0, 1376278, 4, 0, 1376279, 4, 0, 1376282, 4, 0, 1376283, 4, 0, 1376286, 4, 0, 1376287, 4, 0, 1441800, 4, 0, 1441801, 4, 0, 1441804, 4, 0, 1441805, 4, 0, 1441818, 4, 0, 1441819, 4, 0, 1441822, 4, 0, 1441823, 4, 0, 1441826, 4, 0, 1441827, 4, 0, 1507336, 4, 0, 1507337, 4, 0, 1507340, 4, 0, 1507341, 4, 0, 1507354, 4, 0, 1507355, 4, 0, 1507358, 4, 0, 1507359, 4, 0, 1507362, 4, 0, 1507363, 4, 0, 1572872, 4, 0, 1572873, 4, 0, 1572878, 4, 0, 1572879, 4, 0, 1572880, 4, 0, 1572881, 4, 0, 1572886, 4, 0, 1572887, 4, 0, 1572888, 4, 0, 1572889, 4, 0, 1572894, 4, 0, 1572895, 4, 0, 1638408, 4, 0, 1638409, 4, 0, 1638414, 4, 0, 1638415, 4, 0, 1638416, 4, 0, 1638417, 4, 0, 1638422, 4, 0, 1638423, 4, 0, 1638424, 4, 0, 1638425, 4, 0, 1638430, 4, 0, 1638431, 4, 0, 1703938, 4, 0, 1703939, 4, 0, 1703944, 4, 0, 1703945, 4, 0, 1703966, 4, 0, 1703967, 4, 0, 1703972, 4, 0, 1703973, 4, 0, 1769474, 4, 0, 1769475, 4, 0, 1769480, 4, 0, 1769481, 4, 0, 1769502, 4, 0, 1769503, 4, 0, 1769508, 4, 0, 1769509, 4, 0, 1835020, 4, 0, 1835021, 4, 0, 1835022, 4, 0, 1835023, 4, 0, 1835032, 4, 0, 1835033, 4, 0, 1835034, 4, 0, 1835035, 4, 0, 1900556, 4, 0, 1900557, 4, 0, 1900558, 4, 0, 1900559, 4, 0, 1900568, 4, 0, 1900569, 4, 0, 1900570, 4, 0, 1900571, 4, 0 )
+
+[node name="VictoryTimer" type="Timer" parent="."]
+[connection signal="timeout" from="GameTimer" to="." method="_on_GameTimer_timeout"]
+[connection signal="timeout" from="VictoryTimer" to="." method="_on_VictoryTimer_timeout"]

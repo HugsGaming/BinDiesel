@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://fonts/RetroBoundUC.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=1]
+size = 26
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 26
+font_data = ExtResource( 1 )
+
+[node name="UI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 1176.0
+margin_top = 4.0
+margin_right = 1678.0
+margin_bottom = 955.0
+color = Color( 0.811765, 0.301961, 0.12549, 1 )
+
+[node name="Time" type="Label" parent="."]
+margin_left = 1220.0
+margin_top = 91.0
+margin_right = 1363.0
+margin_bottom = 122.0
+custom_fonts/font = SubResource( 1 )
+text = "Time Left"
+
+[node name="Timer" type="Label" parent="."]
+margin_left = 1391.88
+margin_top = 95.9423
+margin_right = 1431.88
+margin_bottom = 126.942
+custom_fonts/font = SubResource( 2 )

@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scipts/Enemy.gd" type="Script" id=1]
+[ext_resource path="res://Oil.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/slime2/003.png" type="Texture" id=3]
+[ext_resource path="res://slime3/000.png" type="Texture" id=4]
+[ext_resource path="res://slime3/001.png" type="Texture" id=5]
+[ext_resource path="res://slime3/002.png" type="Texture" id=6]
+[ext_resource path="res://slime3/003.png" type="Texture" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "Walking",
+"speed": 12.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 11.5352
+height = 8.85985
+
+[node name="Enemy(Slow)" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource( 1 )
+item = ExtResource( 2 )
+health = 3
+MAX_SPEED = 2500
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "Walking"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.257039, -0.563387 )
+shape = SubResource( 2 )
+
+[node name="Chase_Timer" type="Timer" parent="."]
+
+[node name="Cooldown_Timer" type="Timer" parent="."]
+
+[node name="ItemPosition" type="Position2D" parent="."]
+
+[node name="MovementTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="onWallTimer(FacingLeft)" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="onWallTimer(FacingRight)" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="onWallTimer(FacingUp)" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="onWallTimer(FacingDown)" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+[connection signal="timeout" from="MovementTimer" to="." method="_on_MovementTimer_timeout"]
+[connection signal="timeout" from="onWallTimer(FacingLeft)" to="." method="_on_onWallTimerFacingLeft_timeout"]
+[connection signal="timeout" from="onWallTimer(FacingRight)" to="." method="_on_onWallTimerFacingRight_timeout"]
+[connection signal="timeout" from="onWallTimer(FacingUp)" to="." method="_on_onWallTimerFacingUp_timeout"]
+[connection signal="timeout" from="onWallTimer(FacingDown)" to="." method="_on_onWallTimerFacingDown_timeout"]

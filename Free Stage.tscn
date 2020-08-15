@@ -1,0 +1,102 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scipts/Game.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fonts/RetroBoundUC.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Enemy(Fast).tscn" type="PackedScene" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 26
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 26
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 26
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 26
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 26
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 26
+font_data = ExtResource( 3 )
+
+[node name="Free Stage" type="Node2D"]
+script = ExtResource( 1 )
+number_of_oil_needed = 1
+number_of_seconds_per_game = 180
+ui_label_timer_path = NodePath("UI/TimeLeft")
+ui_label_oilCollected_path = NodePath("UI/Number Oil Collected")
+ui_label_bulletsLeft_path = NodePath("UI/Bullets Left")
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 86.5208, 103.728 )
+
+[node name="UI" type="ColorRect" parent="."]
+margin_left = 1245.0
+margin_top = 2.0
+margin_right = 1678.0
+margin_bottom = 957.0
+color = Color( 0.937255, 0.458824, 0.0784314, 1 )
+
+[node name="TileMap" type="TileMap" parent="UI"]
+format = 1
+
+[node name="Time" type="Label" parent="UI"]
+margin_left = 4.75012
+margin_right = 140.75
+margin_bottom = 34.0
+custom_fonts/font = SubResource( 1 )
+text = "Time Left:"
+
+[node name="TimeLeft" type="Label" parent="UI"]
+margin_left = 157.919
+margin_top = 0.558502
+margin_right = 307.919
+margin_bottom = 31.5585
+custom_fonts/font = SubResource( 2 )
+
+[node name="Oil Collected" type="Label" parent="UI"]
+margin_left = 2.6998
+margin_top = 57.75
+margin_right = 198.7
+margin_bottom = 88.75
+custom_fonts/font = SubResource( 3 )
+text = "Oil Collected:"
+
+[node name="Number Oil Collected" type="Label" parent="UI"]
+margin_left = 228.0
+margin_top = 62.0
+margin_right = 284.0
+margin_bottom = 93.0
+custom_fonts/font = SubResource( 4 )
+
+[node name="Bullets Label" type="Label" parent="UI"]
+margin_left = 2.34998
+margin_top = 119.8
+margin_right = 183.35
+margin_bottom = 150.8
+custom_fonts/font = SubResource( 5 )
+text = "Bullets Left:"
+
+[node name="Bullets Left" type="Label" parent="UI"]
+margin_left = 218.0
+margin_top = 121.6
+margin_right = 361.0
+margin_bottom = 152.6
+custom_fonts/font = SubResource( 6 )
+
+[node name="GameTimer" type="Timer" parent="."]
+
+[node name="Enemy(Fast)" parent="." instance=ExtResource( 4 )]
+position = Vector2( 605.597, 403.944 )
+MAX_SPEED = 4000
+[connection signal="dead" from="Player" to="." method="_on_Player_dead"]

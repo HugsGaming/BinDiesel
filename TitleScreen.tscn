@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://TitleScreen.gd" type="Script" id=1]
+[ext_resource path="res://background.png" type="Texture" id=2]
+[ext_resource path="res://Logo FINAL v2.png" type="Texture" id=3]
+[ext_resource path="res://Playbutton_idle.png" type="Texture" id=4]
+[ext_resource path="res://Playbutton_highlighted.png" type="Texture" id=5]
+[ext_resource path="res://Exitbutton_idle.png" type="Texture" id=6]
+[ext_resource path="res://Exitbutton_highlighted.png" type="Texture" id=7]
+[ext_resource path="res://Audio Files/TitleMenu Music.wav" type="AudioStream" id=8]
+
+[node name="TitleScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+
+[node name="Menu" type="VBoxContainer" parent="."]
+margin_left = 120.0
+margin_top = 80.0
+margin_right = 1560.0
+margin_bottom = 880.0
+size_flags_horizontal = 3
+
+[node name="Logo" type="TextureRect" parent="Menu"]
+margin_right = 1440.0
+margin_bottom = 372.0
+texture = ExtResource( 3 )
+stretch_mode = 4
+
+[node name="CenterRow" type="HBoxContainer" parent="Menu"]
+margin_top = 376.0
+margin_right = 1440.0
+margin_bottom = 800.0
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="Menu/CenterRow"]
+margin_right = 1440.0
+margin_bottom = 424.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Buttons" type="VBoxContainer" parent="Menu/CenterRow/CenterContainer"]
+margin_left = 545.0
+margin_top = 68.0
+margin_right = 894.0
+margin_bottom = 356.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+custom_constants/separation = 50
+alignment = 1
+
+[node name="Play" type="TextureButton" parent="Menu/CenterRow/CenterContainer/Buttons"]
+margin_right = 349.0
+margin_bottom = 119.0
+texture_normal = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+
+[node name="Exit" type="TextureButton" parent="Menu/CenterRow/CenterContainer/Buttons"]
+margin_top = 169.0
+margin_right = 349.0
+margin_bottom = 288.0
+texture_normal = ExtResource( 6 )
+texture_hover = ExtResource( 7 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+autoplay = true
+[connection signal="pressed" from="Menu/CenterRow/CenterContainer/Buttons/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="Menu/CenterRow/CenterContainer/Buttons/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]

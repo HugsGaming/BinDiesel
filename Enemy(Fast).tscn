@@ -1,0 +1,83 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Scipts/Enemy.gd" type="Script" id=1]
+[ext_resource path="res://Oil.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/slime2/000.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/slime2/001.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/slime2/002.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/slime2/003.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/slime1/000.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/slime1/001.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/slime1/002.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/slime1/003.png" type="Texture" id=10]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Walking",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "Walking2",
+"speed": 12.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 9.0
+height = 0.76
+
+[node name="Enemy(Fast)" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource( 1 )
+item = ExtResource( 2 )
+health = 1
+MAX_SPEED = 3500
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "Walking2"
+frame = 1
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.459926, 6.60631 )
+shape = SubResource( 2 )
+
+[node name="Chase_Timer" type="Timer" parent="."]
+
+[node name="Cooldown_Timer" type="Timer" parent="."]
+
+[node name="ItemPosition" type="Position2D" parent="."]
+
+[node name="MovementTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="onWallTimer(FacingLeft)" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="onWallTimer(FacingRight)" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="onWallTimer(FacingUp)" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="onWallTimer(FacingDown)" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+[connection signal="timeout" from="MovementTimer" to="." method="_on_MovementTimer_timeout"]
+[connection signal="timeout" from="onWallTimer(FacingLeft)" to="." method="_on_onWallTimerFacingLeft_timeout"]
+[connection signal="timeout" from="onWallTimer(FacingRight)" to="." method="_on_onWallTimerFacingRight_timeout"]
+[connection signal="timeout" from="onWallTimer(FacingUp)" to="." method="_on_onWallTimerFacingUp_timeout"]
+[connection signal="timeout" from="onWallTimer(FacingDown)" to="." method="_on_onWallTimerFacingDown_timeout"]

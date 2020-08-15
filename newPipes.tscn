@@ -1,0 +1,369 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Game Assets/pipesfinal.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+[node name="newPipes" type="Node2D"]
+
+[node name="Pipe 1" type="Sprite" parent="."]
+position = Vector2( 158.513, 305.317 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Pipe 1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pipe 1/StaticBody2D"]
+position = Vector2( 27, 0 )
+scale = Vector2( 0.6, 3.2 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pipe 1/StaticBody2D"]
+position = Vector2( -27, 0 )
+scale = Vector2( 0.6, 3.2 )
+shape = SubResource( 2 )
+
+[node name="Pipe 2" type="Sprite" parent="."]
+position = Vector2( 246.701, 305.676 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 64, 64, 64 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Pipe 2"]
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pipe 2/StaticBody2D"]
+position = Vector2( 27, 0 )
+scale = Vector2( 0.6, 3.2 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pipe 2/StaticBody2D"]
+position = Vector2( -27, 0 )
+scale = Vector2( 0.6, 3.2 )
+shape = SubResource( 2 )
+
+[node name="Pipe 3" type="Sprite" parent="."]
+position = Vector2( 330.945, 304.6 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 320, 64, 64, 64 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Pipe 3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pipe 3/StaticBody2D"]
+position = Vector2( 0, 27 )
+rotation = 1.5708
+scale = Vector2( 0.6, 3.2 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pipe 3/StaticBody2D"]
+position = Vector2( -27, 0 )
+scale = Vector2( 0.6, 3.2 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Pipe 3/StaticBody2D"]
+position = Vector2( 27, -27 )
+scale = Vector2( 0.48, 0.5 )
+shape = SubResource( 3 )
+
+[node name="Pipe 4" type="Sprite" parent="."]
+position = Vector2( 407.486, 304.287 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 320, 0, 64, 64 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Pipe 4"]
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pipe 4/StaticBody2D"]
+position = Vector2( 0, 27 )
+rotation = 1.5708
+scale = Vector2( 0.6, 3.2 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pipe 4/StaticBody2D"]
+position = Vector2( -27, 0 )
+scale = Vector2( 0.6, 3.2 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Pipe 4/StaticBody2D"]
+position = Vector2( 27, -27 )
+scale = Vector2( 0.48, 0.5 )
+shape = SubResource( 3 )
+
+[node name="Pipe 5" type="Sprite" parent="."]
+position = Vector2( 156.492, 390.108 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 384, 0, 64, 64 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Pipe 5"]
+rotation = 3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pipe 5/StaticBody2D"]
+position = Vector2( 0, 27 )
+rotation = 1.5708
+scale = Vector2( 0.6, 3.2 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pipe 5/StaticBody2D"]
+position = Vector2( -27, 0 )
+scale = Vector2( 0.6, 3.2 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Pipe 5/StaticBody2D"]
+position = Vector2( 27, -27 )
+scale = Vector2( 0.48, 0.5 )
+shape = SubResource( 3 )
+
+[node name="Pipe 6" type="Sprite" parent="."]
+position = Vector2( 248.444, 388.746 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 384, 64, 64, 64 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Pipe 6"]
+rotation = 4.71239
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pipe 6/StaticBody2D"]
+position = Vector2( 0, 27 )
+rotation = 1.5708
+scale = Vector2( 0.6, 3.2 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pipe 6/StaticBody2D"]
+position = Vector2( -27, 0 )
+scale = Vector2( 0.6, 3.2 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Pipe 6/StaticBody2D"]
+position = Vector2( 27, -27 )
+scale = Vector2( 0.48, 0.5 )
+shape = SubResource( 3 )
+
+[node name="Pipe 7" type="Sprite" parent="."]
+position = Vector2( 330.519, 389.087 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 576, 0, 64, 64 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Pipe 7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pipe 7/StaticBody2D"]
+position = Vector2( 27, 27 )
+scale = Vector2( 0.48, 0.5 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pipe 7/StaticBody2D"]
+position = Vector2( -27, 27 )
+scale = Vector2( 0.48, 0.5 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Pipe 7/StaticBody2D"]
+position = Vector2( 27, -27 )
+scale = Vector2( 0.48, 0.5 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Pipe 7/StaticBody2D"]
+position = Vector2( -27, -27 )
+scale = Vector2( 0.48, 0.5 )
+shape = SubResource( 3 )
+
+[node name="Pipe 8" type="Sprite" parent="."]
+position = Vector2( 406.124, 388.065 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 256, 128, 64, 64 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Pipe 8"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pipe 8/StaticBody2D"]
+position = Vector2( 27, 27 )
+rotation = 1.5708
+scale = Vector2( 0.48, 0.5 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pipe 8/StaticBody2D"]
+position = Vector2( -27, 0 )
+scale = Vector2( 0.6, 3.2 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Pipe 8/StaticBody2D"]
+position = Vector2( 27, -27 )
+scale = Vector2( 0.48, 0.5 )
+shape = SubResource( 3 )
+
+[node name="Pipe 9" type="Sprite" parent="."]
+position = Vector2( 152.406, 467.756 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 320, 192, 64, 64 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Pipe 9"]
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pipe 9/StaticBody2D"]
+position = Vector2( 27, 27 )
+rotation = 1.5708
+scale = Vector2( 0.48, 0.5 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pipe 9/StaticBody2D"]
+position = Vector2( -27, 0 )
+scale = Vector2( 0.6, 3.2 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Pipe 9/StaticBody2D"]
+position = Vector2( 27, -27 )
+scale = Vector2( 0.48, 0.5 )
+shape = SubResource( 3 )
+
+[node name="Pipe 10" type="Sprite" parent="."]
+position = Vector2( 244.016, 472.865 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 320, 128, 64, 64 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Pipe 10"]
+rotation = 3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pipe 10/StaticBody2D"]
+position = Vector2( 27, 27 )
+rotation = 1.5708
+scale = Vector2( 0.48, 0.5 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pipe 10/StaticBody2D"]
+position = Vector2( -27, 0 )
+scale = Vector2( 0.6, 3.2 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Pipe 10/StaticBody2D"]
+position = Vector2( 27, -27 )
+scale = Vector2( 0.48, 0.5 )
+shape = SubResource( 3 )
+
+[node name="Pipe 11" type="Sprite" parent="."]
+position = Vector2( 333.925, 474.227 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 256, 192, 64, 64 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Pipe 11"]
+rotation = 4.71239
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pipe 11/StaticBody2D"]
+position = Vector2( 27, 27 )
+rotation = 1.5708
+scale = Vector2( 0.48, 0.5 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pipe 11/StaticBody2D"]
+position = Vector2( -27, 0 )
+scale = Vector2( 0.6, 3.2 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Pipe 11/StaticBody2D"]
+position = Vector2( 27, -27 )
+scale = Vector2( 0.48, 0.5 )
+shape = SubResource( 3 )
+
+[node name="Pipe 12" type="Sprite" parent="."]
+position = Vector2( 415.319, 475.93 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 512, 192, 64, 64 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Pipe 12"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pipe 12/StaticBody2D"]
+position = Vector2( 0, 27 )
+scale = Vector2( 3.3, 0.5 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pipe 12/StaticBody2D"]
+position = Vector2( -21, 0 )
+scale = Vector2( 0.8, 3.2 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Pipe 12/StaticBody2D"]
+position = Vector2( 0, -27 )
+scale = Vector2( 3.2, 0.5 )
+shape = SubResource( 3 )
+
+[node name="Pipe 13" type="Sprite" parent="."]
+position = Vector2( 150.022, 550.853 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 512, 128, 64, 64 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Pipe 13"]
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pipe 13/StaticBody2D"]
+position = Vector2( 0, 27 )
+scale = Vector2( 3.3, 0.5 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pipe 13/StaticBody2D"]
+position = Vector2( -21, 0 )
+scale = Vector2( 0.8, 3.2 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Pipe 13/StaticBody2D"]
+position = Vector2( 0, -27 )
+scale = Vector2( 3.2, 0.5 )
+shape = SubResource( 3 )
+
+[node name="Pipe 14" type="Sprite" parent="."]
+position = Vector2( 242.995, 551.194 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 576, 192, 64, 64 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Pipe 14"]
+rotation = 3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pipe 14/StaticBody2D"]
+position = Vector2( 0, 27 )
+scale = Vector2( 3.3, 0.5 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pipe 14/StaticBody2D"]
+position = Vector2( -21, 0 )
+scale = Vector2( 0.8, 3.2 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Pipe 14/StaticBody2D"]
+position = Vector2( 0, -27 )
+scale = Vector2( 3.2, 0.5 )
+shape = SubResource( 3 )
+
+[node name="Pipe 15" type="Sprite" parent="."]
+position = Vector2( 341.076, 555.621 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 576, 128, 64, 64 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Pipe 15"]
+rotation = 4.71239
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pipe 15/StaticBody2D"]
+position = Vector2( 0, 27 )
+scale = Vector2( 3.3, 0.5 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pipe 15/StaticBody2D"]
+position = Vector2( -21, 0 )
+scale = Vector2( 0.8, 3.2 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Pipe 15/StaticBody2D"]
+position = Vector2( 0, -27 )
+scale = Vector2( 3.2, 0.5 )
+shape = SubResource( 3 )

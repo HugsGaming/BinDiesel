@@ -1,0 +1,96 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Scipts/Player.gd" type="Script" id=1]
+[ext_resource path="res://Bullet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Character/back.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Character/front.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Character/back_walking1.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Character/back_walking_2.png" type="Texture" id=6]
+[ext_resource path="res://Game Assets/characterdied.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Character/front_walking_1.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Character/front_walking_2.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Character/right_side_walking.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Character/right_side_standing.png" type="Texture" id=11]
+[ext_resource path="res://Audio Files/youdied music.wav" type="AudioStream" id=12]
+[ext_resource path="res://Audio Files/Ingame Music.wav" type="AudioStream" id=13]
+[ext_resource path="res://Audio Files/nextlevel music.wav" type="AudioStream" id=14]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Idle(Up)",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Idle(Down)",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Walk(Up)",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "Dead",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Walk(Down)",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "Walk(Side)",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "Idle(Side)",
+"speed": 0.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 3.9309
+height = 6.21024
+
+[node name="Player" type="KinematicBody2D"]
+scale = Vector2( 2, 2 )
+collision_mask = 2
+script = ExtResource( 1 )
+Bullet = ExtResource( 2 )
+
+[node name="Animation" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 1 )
+animation = "Dead"
+
+[node name="GunCoolDown" type="Timer" parent="."]
+
+[node name="Bullet_position" type="Position2D" parent="."]
+position = Vector2( 3, 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="GunDelay" type="Timer" parent="."]
+
+[node name="DeathTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="DeathMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+
+[node name="InGameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+autoplay = true
+
+[node name="VictoryMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+[connection signal="timeout" from="GunCoolDown" to="." method="_on_GunCoolDown_timeout"]
+[connection signal="timeout" from="GunDelay" to="." method="_on_GunDelay_timeout"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_DeathTimer_timeout"]
+[connection signal="finished" from="InGameMusic" to="." method="_on_InGameMusic_finished"]
